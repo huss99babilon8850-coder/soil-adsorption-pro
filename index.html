@@ -22,12 +22,12 @@
 
     <div class="max-w-7xl mx-auto space-y-6">
         
-        <div class="glass-panel rounded-2xl p-6 border-r-4 border-emerald-500 flex justify-between items-center">
+        <div class="glass-panel rounded-2xl p-6 border-r-4 border-emerald-500 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             <div>
                 <h1 class="text-3xl font-black text-white mb-2">محلل امتزاز التربة المتقدم</h1>
-                <p class="text-slate-400">حساب نماذج لانجماير وفريندليخ وتقييم الديناميكية الحرارية للتربة</p>
+                <p class="text-slate-400 text-sm md:text-base">حساب نماذج لانجماير وفريندليخ وتقييم الديناميكية الحرارية للتربة</p>
             </div>
-            <button onclick="window.print()" class="no-print bg-slate-700 hover:bg-slate-600 text-white px-4 py-2 rounded-lg font-bold transition flex items-center gap-2">
+            <button onclick="window.print()" class="no-print w-full md:w-auto bg-slate-700 hover:bg-slate-600 text-white px-4 py-2 rounded-lg font-bold transition flex items-center justify-center gap-2">
                 🖨️ طباعة التقرير
             </button>
         </div>
@@ -38,7 +38,7 @@
                 <div class="glass-panel rounded-2xl p-6 shadow-xl space-y-5">
                     <h2 class="text-xl font-bold text-white border-b border-slate-700 pb-2">1. محددات التجربة</h2>
                     
-                    <div class="grid grid-cols-2 gap-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <label class="block text-sm text-slate-300 mb-1">وزن التربة (غرام):</label>
                             <input id="weight-m" type="number" value="2" class="w-full bg-slate-800 border border-slate-600 rounded-lg p-2.5 text-center text-emerald-400 font-bold focus:border-emerald-500 outline-none">
@@ -51,12 +51,12 @@
 
                     <div class="space-y-4">
                         <div>
-                            <label class="block text-sm text-slate-300 mb-1">التراكيز الابتدائية C₀ (مفصولة بفاصلة):</label>
-                            <input id="c0-input" type="text" value="10, 20, 50, 100, 150, 200" class="w-full bg-slate-800 border border-slate-600 rounded-lg p-3 font-mono text-left text-slate-200">
+                            <label class="block text-sm text-slate-300 mb-1">التراكيز C₀ (افصل بفاصلة):</label>
+                            <input id="c0-input" type="text" value="10, 20, 50, 100, 150, 200" class="w-full bg-slate-800 border border-slate-600 rounded-lg p-3 font-mono text-left text-slate-200" dir="ltr">
                         </div>
                         <div>
-                            <label class="block text-sm text-slate-300 mb-1">تراكيز الاتزان Cₑ (مفصولة بفاصلة):</label>
-                            <input id="ce-input" type="text" value="1.2, 3.5, 12.1, 35.0, 62.3, 98.1" class="w-full bg-slate-800 border border-slate-600 rounded-lg p-3 font-mono text-left text-slate-200">
+                            <label class="block text-sm text-slate-300 mb-1">تراكيز الاتزان Cₑ (افصل بفاصلة):</label>
+                            <input id="ce-input" type="text" value="1.2, 3.5, 12.1, 35.0, 62.3, 98.1" class="w-full bg-slate-800 border border-slate-600 rounded-lg p-3 font-mono text-left text-slate-200" dir="ltr">
                         </div>
                     </div>
 
@@ -77,37 +77,37 @@
                 
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div class="glass-panel p-4 rounded-xl text-center border-t-4 border-emerald-500">
-                        <span class="block text-sm text-slate-400 font-bold mb-1">أقصى سعة (q_max)</span>
-                        <span id="res-qmax" class="text-2xl font-black text-emerald-400">0.00</span>
-                        <span class="block text-xs text-slate-500 mt-1">ملغم / غرام</span>
+                        <span class="block text-xs md:text-sm text-slate-400 font-bold mb-1">أقصى سعة (q_max)</span>
+                        <span id="res-qmax" class="text-xl md:text-2xl font-black text-emerald-400">0.00</span>
+                        <span class="block text-[10px] md:text-xs text-slate-500 mt-1">ملغم / غرام</span>
                     </div>
                     <div class="glass-panel p-4 rounded-xl text-center border-t-4 border-amber-500">
-                        <span class="block text-sm text-slate-400 font-bold mb-1">طاقة الربط (K_L)</span>
-                        <span id="res-kl" class="text-2xl font-black text-amber-400">0.00</span>
-                        <span class="block text-xs text-slate-500 mt-1">لتر / ملغم</span>
+                        <span class="block text-xs md:text-sm text-slate-400 font-bold mb-1">طاقة الربط (K_L)</span>
+                        <span id="res-kl" class="text-xl md:text-2xl font-black text-amber-400">0.00</span>
+                        <span class="block text-[10px] md:text-xs text-slate-500 mt-1">لتر / ملغم</span>
                     </div>
                     <div class="glass-panel p-4 rounded-xl text-center border-t-4 border-cyan-500">
-                        <span class="block text-sm text-slate-400 font-bold mb-1">سعة فريندليخ (K_f)</span>
-                        <span id="res-kf" class="text-2xl font-black text-cyan-400">0.00</span>
-                        <span class="block text-xs text-slate-500 mt-1">معامل السعة</span>
+                        <span class="block text-xs md:text-sm text-slate-400 font-bold mb-1">سعة فريندليخ (K_f)</span>
+                        <span id="res-kf" class="text-xl md:text-2xl font-black text-cyan-400">0.00</span>
+                        <span class="block text-[10px] md:text-xs text-slate-500 mt-1">معامل السعة</span>
                     </div>
                     <div class="glass-panel p-4 rounded-xl text-center border-t-4 border-purple-500">
-                        <span class="block text-sm text-slate-400 font-bold mb-1">شدة الامتزاز (1/n)</span>
-                        <span id="res-n" class="text-2xl font-black text-purple-400">0.00</span>
-                        <span class="block text-xs text-slate-500 mt-1">معامل الملاءمة</span>
+                        <span class="block text-xs md:text-sm text-slate-400 font-bold mb-1">شدة الامتزاز (1/n)</span>
+                        <span id="res-n" class="text-xl md:text-2xl font-black text-purple-400">0.00</span>
+                        <span class="block text-[10px] md:text-xs text-slate-500 mt-1">معامل الملاءمة</span>
                     </div>
                 </div>
 
                 <div class="glass-panel rounded-2xl p-6 shadow-xl">
-                    <div class="flex flex-col sm:flex-row justify-between items-center mb-6 pb-4 border-b border-slate-700 no-print">
-                        <h3 class="text-lg font-bold text-white mb-4 sm:mb-0">التمثيل البياني للمعادلات</h3>
-                        <div class="flex gap-2">
-                            <button onclick="drawChart('isotherm')" id="btn-isotherm" class="px-4 py-2 rounded-lg text-sm font-bold bg-emerald-600 text-white">المنحنى الفعلي</button>
-                            <button onclick="drawChart('langmuir')" id="btn-langmuir" class="px-4 py-2 rounded-lg text-sm font-bold bg-slate-700 hover:bg-slate-600 text-slate-300">نموذج لانجماير</button>
-                            <button onclick="drawChart('freundlich')" id="btn-freundlich" class="px-4 py-2 rounded-lg text-sm font-bold bg-slate-700 hover:bg-slate-600 text-slate-300">نموذج فريندليخ</button>
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 pb-4 border-b border-slate-700 no-print gap-4">
+                        <h3 class="text-lg font-bold text-white">التمثيل البياني للمعادلات</h3>
+                        <div class="flex flex-wrap gap-2 w-full md:w-auto">
+                            <button onclick="drawChart('isotherm')" id="btn-isotherm" class="flex-1 md:flex-none px-3 py-2 rounded-lg text-xs md:text-sm font-bold bg-emerald-600 text-white">المنحنى الفعلي</button>
+                            <button onclick="drawChart('langmuir')" id="btn-langmuir" class="flex-1 md:flex-none px-3 py-2 rounded-lg text-xs md:text-sm font-bold bg-slate-700 hover:bg-slate-600 text-slate-300">نموذج لانجماير</button>
+                            <button onclick="drawChart('freundlich')" id="btn-freundlich" class="flex-1 md:flex-none px-3 py-2 rounded-lg text-xs md:text-sm font-bold bg-slate-700 hover:bg-slate-600 text-slate-300">نموذج فريندليخ</button>
                         </div>
                     </div>
-                    <div class="relative h-96 w-full bg-slate-900 rounded-xl p-2 border border-slate-700">
+                    <div class="relative h-72 md:h-96 w-full bg-slate-900 rounded-xl p-2 border border-slate-700">
                         <canvas id="mainChart"></canvas>
                     </div>
                 </div>
@@ -120,22 +120,39 @@
         let modelData = null;
         let chartObj = null;
 
+        // دالة مخصصة لقراءة الأرقام بشكل آمن حتى لو تم إدخال فاصلة عربية
+        function parseInputArray(inputString) {
+            return inputString
+                .replace(/،/g, ',') // تحويل الفاصلة العربية إلى إنجليزية
+                .split(',')
+                .map(item => parseFloat(item.trim()))
+                .filter(item => !isNaN(item));
+        }
+
         function analyzeData() {
             const m = parseFloat(document.getElementById('weight-m').value);
             const V = parseFloat(document.getElementById('volume-v').value);
-            const C0 = document.getElementById('c0-input').value.split(',').map(Number);
-            const Ce = document.getElementById('ce-input').value.split(',').map(Number);
+            
+            // استخدام دالة المعالجة الآمنة
+            const C0 = parseInputArray(document.getElementById('c0-input').value);
+            const Ce = parseInputArray(document.getElementById('ce-input').value);
 
-            if (C0.length !== Ce.length || C0.some(isNaN) || Ce.some(isNaN)) {
-                alert('خطأ: تأكد من إدخال الأرقام بشكل صحيح وأن عدد التراكيز متطابق.');
+            if (C0.length === 0 || Ce.length === 0 || C0.length !== Ce.length) {
+                alert('خطأ: تأكد من إدخال الأرقام بشكل صحيح وأن عدد التراكيز الابتدائية يتطابق مع تراكيز الاتزان.');
                 return;
             }
 
             let qe = [], Ce_qe = [], logCe = [], logQe = [];
 
-            // الحسابات الأساسية للمعادلات
+            // الحسابات الأساسية للمعادلات مع حماية من القيم السالبة والصفرية
             for(let i=0; i<C0.length; i++) {
                 let current_qe = ((C0[i] - Ce[i]) * V) / m;
+                
+                if (current_qe <= 0 || Ce[i] <= 0) {
+                    alert(`تحذير: التركيز رقم ${i+1} يحتوي على قيم سالبة أو صفرية مما يمنع حساب اللوغاريتم. يرجى مراجعة البيانات.`);
+                    return;
+                }
+
                 qe.push(current_qe);
                 Ce_qe.push(Ce[i] / current_qe);
                 logCe.push(Math.log10(Ce[i]));
@@ -146,25 +163,25 @@
             let langmuir = calculateRegression(Ce, Ce_qe);
             let freundlich = calculateRegression(logCe, logQe);
 
-            // استخراج الثوابت
-            let q_max = 1 / langmuir.slope;
-            let K_L = 1 / (langmuir.intercept * q_max);
+            // استخراج الثوابت وحماية القسمة على صفر
+            let q_max = langmuir.slope !== 0 ? 1 / langmuir.slope : 0;
+            let K_L = (langmuir.intercept * q_max) !== 0 ? 1 / (langmuir.intercept * q_max) : 0;
             let one_over_n = freundlich.slope;
             let K_f = Math.pow(10, freundlich.intercept);
 
             modelData = { Ce, qe, Ce_qe, logCe, logQe };
 
             // عرض الأرقام على الشاشة
-            document.getElementById('res-qmax').innerText = q_max.toFixed(3);
-            document.getElementById('res-kl').innerText = K_L.toFixed(4);
-            document.getElementById('res-kf').innerText = K_f.toFixed(3);
-            document.getElementById('res-n').innerText = one_over_n.toFixed(3);
+            document.getElementById('res-qmax').innerText = isFinite(q_max) ? q_max.toFixed(3) : "خطأ";
+            document.getElementById('res-kl').innerText = isFinite(K_L) ? Math.abs(K_L).toFixed(4) : "خطأ";
+            document.getElementById('res-kf').innerText = isFinite(K_f) ? K_f.toFixed(3) : "خطأ";
+            document.getElementById('res-n').innerText = isFinite(one_over_n) ? one_over_n.toFixed(3) : "خطأ";
 
             evaluateSoil(one_over_n);
             drawChart(currentView);
         }
 
-        // دالة رياضية لحساب الميل (Slope) والتقاطع (Intercept)
+        // دالة رياضية لحساب الميل والتقاطع
         function calculateRegression(x, y) {
             let n = x.length;
             let sumX = 0, sumY = 0, sumXY = 0, sumX2 = 0;
@@ -172,12 +189,13 @@
                 sumX += x[i]; sumY += y[i];
                 sumXY += (x[i] * y[i]); sumX2 += (x[i] * x[i]);
             }
-            let slope = (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
+            let denominator = (n * sumX2 - sumX * sumX);
+            let slope = denominator !== 0 ? (n * sumXY - sumX * sumY) / denominator : 0;
             let intercept = (sumY - slope * sumX) / n;
             return { slope, intercept };
         }
 
-        // دالة لتقييم الامتزاز بناء على المراجع العلمية
+        // دالة لتقييم الامتزاز
         function evaluateSoil(n_value) {
             const box = document.getElementById('eval-box');
             if (n_value >= 0.1 && n_value <= 1.0) {
@@ -186,9 +204,12 @@
             } else if (n_value > 1.0) {
                 box.innerHTML = `<h4 class="text-amber-500 font-bold text-lg">امتزاز غير مواتٍ (Unfavorable)</h4>
                                  <p class="text-slate-300 text-sm mt-2">القيمة أكبر من 1، مما يعني أن قوى الربط ضعيفة والسطح لا يفضل هذا العنصر.</p>`;
+            } else if (n_value > 0 && n_value < 0.1) {
+                box.innerHTML = `<h4 class="text-blue-400 font-bold text-lg">امتزاز شديد القوة</h4>
+                                 <p class="text-slate-300 text-sm mt-2">القيمة قريبة جداً من الصفر، مما يعني ارتباطاً عالي الكثافة.</p>`;
             } else {
                 box.innerHTML = `<h4 class="text-purple-400 font-bold text-lg">امتزاز غير عكسي</h4>
-                                 <p class="text-slate-300 text-sm mt-2">يرتبط العنصر بقوة شديدة جداً بالتربة يصعب تفككها.</p>`;
+                                 <p class="text-slate-300 text-sm mt-2">يرتبط العنصر بقوة شديدة جداً بالتربة يصعب تفككها، أو توجد مشكلة في البيانات.</p>`;
             }
         }
 
@@ -196,13 +217,13 @@
             if (!modelData) return;
             currentView = type;
             
-            // تحديث ألوان الأزرار
+            // تحديث ألوان الأزرار ديناميكياً
             ['isotherm', 'langmuir', 'freundlich'].forEach(t => {
                 let btn = document.getElementById(`btn-${t}`);
                 if(t === type) {
-                    btn.className = "px-4 py-2 rounded-lg text-sm font-bold bg-emerald-600 text-white transition";
+                    btn.className = "flex-1 md:flex-none px-3 py-2 rounded-lg text-xs md:text-sm font-bold bg-emerald-600 text-white transition";
                 } else {
-                    btn.className = "px-4 py-2 rounded-lg text-sm font-bold bg-slate-700 hover:bg-slate-600 text-slate-300 transition";
+                    btn.className = "flex-1 md:flex-none px-3 py-2 rounded-lg text-xs md:text-sm font-bold bg-slate-700 hover:bg-slate-600 text-slate-300 transition";
                 }
             });
 
@@ -228,7 +249,8 @@
             chartObj = new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: xData.map(v => v.toFixed(2)),
+                    // معالجة الأرقام لتجنب انهيار الرسم البياني
+                    labels: xData.map(v => isFinite(v) ? v.toFixed(3) : '0'),
                     datasets: [{
                         label: lineTitle,
                         data: yData,
@@ -237,8 +259,8 @@
                         borderWidth: 3,
                         pointBackgroundColor: '#ffffff',
                         pointBorderColor: color,
-                        pointRadius: 6,
-                        pointHoverRadius: 8,
+                        pointRadius: 5,
+                        pointHoverRadius: 7,
                         fill: true,
                         tension: type === 'isotherm' ? 0.3 : 0
                     }]
@@ -246,10 +268,10 @@
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    plugins: { legend: { labels: { color: '#cbd5e1', font: { family: 'Tajawal', size: 14 } } } },
+                    plugins: { legend: { labels: { color: '#cbd5e1', font: { family: 'Tajawal', size: 12 } } } },
                     scales: {
-                        x: { title: { display: true, text: xLabel, color: '#94a3b8', font: {size: 14} }, ticks: { color: '#64748b' }, grid: { color: '#334155' } },
-                        y: { title: { display: true, text: yLabel, color: '#94a3b8', font: {size: 14} }, ticks: { color: '#64748b' }, grid: { color: '#334155' } }
+                        x: { title: { display: true, text: xLabel, color: '#94a3b8', font: {size: 13} }, ticks: { color: '#64748b' }, grid: { color: '#334155' } },
+                        y: { title: { display: true, text: yLabel, color: '#94a3b8', font: {size: 13} }, ticks: { color: '#64748b' }, grid: { color: '#334155' } }
                     }
                 }
             });
